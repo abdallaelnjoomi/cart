@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: beige;
+    }
+
+    button {
+      border: none;
+      background-color: black;
+      color: white;
+      margin: 2px;
+      padding: 15px;
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btn">
+    <div>
+      <button onclick="
+    document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+    </div>
+    <div>
+      <button onclick="
+    //cartQuantity = cartQuantity + 1;
+   if (cartQuantity <= 9){
+    cartQuantity++;
+   }else {
+    cartQuantity = cartQuantity;
+    alert('The Cart Is Full!');
+   }
+   document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+    console.log('Cart quantity: ' + cartQuantity);
+  "> Add To Cart</button>
+
+      <button onclick="
+    //cartQuantity = cartQuantity + 2;
+    if (cartQuantity <= 8){
+      cartQuantity += 2;
+    }else if (cartQuantity <= 9){
+      cartQuantity++;
+    }else {
+      cartQuantity = cartQuantity;
+      alert('The Cart Is Full!');
+    }
+    document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+    console.log('Cart quantity: ' + cartQuantity);
+  ">+2</button>
+
+      <button onclick="
+      if (cartQuantity <= 7) {
+        cartQuantity = cartQuantity + 3;
+      }else if (cartQuantity <= 8){
+        cartQuantity += 2;
+      }else if (cartQuantity <= 9){
+        cartQuantity++;
+      }else{
+        cartQuantity = cartQuantity;
+        alert('The Cart Is Full!');
+      }
+      document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+      console.log('Cart quantity: ' + cartQuantity);
+  ">+3</button>
+
+      <button onclick="
+  if (cartQuantity > 0){
+      cartQuantity--;
+    }else {
+      alert('Not Enough Items In The Cart!')
+    }
+    document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+    console.log('Cart quantity: ' + cartQuantity);
+  ">Remove From Cart</button>
+    </div>
+
+    <button onclick="
+    cartQuantity = 0;
+    console.log('Cart was reset');
+    document.getElementById('results').innerText = `Cart quantity: ${cartQuantity}`;
+    alert('Cart was reset');
+    console.log('Cart quantity: ' + cartQuantity);
+  ">Reset Cart</button>
+  </div>
+  <div id="results"></div>
+  <script>
+    let cartQuantity = 0;
+  </script>
+</body>
+
+</html>
